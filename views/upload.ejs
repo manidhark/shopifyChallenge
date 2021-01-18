@@ -1,0 +1,21 @@
+<a href="/dashboard" class="btn btn-secondary" style="position: relative;;background-color: cornflowerblue;top: 10em;left:30em">Dashboard</a>
+<form method="POST" action="upload-image" enctype="multipart/form-data">
+    <div>
+        <label style="position: relative;top: 13em;left:20em;font-weight:bold">Select your profile picture:</label>
+        <input type="file" name="imageFile" style="position: relative;font-weight: bold;top: 13em;left:21.5em;"/>
+    </div>
+    <div>
+        <label style="position: relative;top: 15em;left:28.5em;font-weight: bold">Name:</label>
+        <input type="text" name="name" style="position: relative;top: 15em;left:30em" required />
+    </div>
+    <div>
+        <label style="position: relative;top: 17em;left:29em;font-weight: bold">Price:</label>
+        <input type="text" name="price" style="position: relative;top: 17em;left:30.5em"required />
+    </div>
+    <div>
+        <label style="position: relative;top: 19em;left:26em;font-weight: bold">Description:</label>
+        <input type="text" name="description" style="position: relative;top: 19em;left:27.5em" required />
+    </div>
+    <div>
+        <input type="submit" name="upload" value="upload" style="position: relative;border-radius: 4px;height: 2.5em;width:4.5em;background-color:cornflowerblue;top: 20em;left:31em" required/>
+</form>

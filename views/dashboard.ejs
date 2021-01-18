@@ -1,0 +1,32 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3" style="font-size: 2em;">Welcome <%= user.name %></p>
+<a href="/authentication/logout" class="btn btn-secondary" style="background: cornflowerblue;position:relative; top:3em;height:2.5em">Logout</a>
+
+<a href="/image/my" class="btn btn-secondary" style="background: cornflowerblue;position:relative; top:3em;left:0.5em;height:2.5em">My Repository</a>
+
+<a href="/image/upload" class="btn btn-secondary" style="background: cornflowerblue;position:relative; top:3em;left:1em;height:2.5em">Upload</a>
+
+<a href="/image/cart" class="btn btn-secondary" style="background: cornflowerblue;position:relative; top:3em;left:1.5em;height:2.5em">Cart <%= quantity %></a>
+
+<form action="/image/search" method="POST">
+    <input type="text" name="search" style="border-radius: 4px; position: relative ;height:3em;width:20em;top: 4em">
+    <input type="submit" name="searchBtn" value="Search" 
+    style="position: relative; top:4em; border-radius:3px;color:black;height:3em;width:4em;">
+    
+</form>
+
+<table>
+    <% for(var i=0; i<images.length; i++) { %>
+    <tr>
+        <td class="image name" style="position: relative;left:0em;font-weight: bold;"><p>Image Name : <%= images[i].name %></p></td>
+            <td class="price" style="position: relative;left:1em;font-weight: bold"><p>Price : <%= images[i].price %></p></td>
+            <td class="description" style="position: relative;left:2em;font-weight: bold"><p>Description : <%= images[i].description %></p></td>
+            <td class="owner" style="position: relative;left:3em;font-weight: bold"><p>Owner : <%= images[i].author.name %></p></td>
+            <td class="image" style="position: relative;left:5em"><img src="../uploads/<%= images[i].imageFile %>" width="300" height="300"/></td>
+            <form action="/image/add" method="POST">
+                <input type="hidden" value= '<%= images[i]._id %>' name="id">
+            <td class="add to cart" style="position: relative;left:7em;border-radius: 4px;border-color: black;font-weight: bold;"><input class="btn btn-secondary" type="submit" name="Add to cart" value="Add to Cart" style="background-color: cornflowerblue;"></td>
+            </form>
+      </tr>
+    <% } %>
+    </table>

@@ -1,0 +1,40 @@
+
+<a href="/dashboard" class="btn btn-secondary" style="background-color: cornflowerblue;position: relative;top: 5em;">Dashboard</a>
+
+
+<table>
+    <% console.log("length"+images.length);
+    var totalPrice=0; %>
+   <% for(var i=0; i<images.length; i++) { %>
+    <tr>
+        <% console.log(images[i].image); %>
+        <td class="image name" style="position: relative;font-weight: bold;"><p>Image Name : <%= images[i].image.name %></p></td>
+            <td  class="price" style="position: relative;font-weight: bold;left:2em"><p>Price : <%= images[i].image.price %></p></td>
+            <td  class="Description" style="position: relative;font-weight: bold;left:3em"><p>Description : <%= images[i].image.description %></p></td>
+            <td><img src="../uploads/<%= images[i].image.imageFile %>" width="300" height="300" style="position: relative;left:4em"/></td>
+            <form action="/image/cart/add" method="POST">
+                <input type="hidden" value= '<%= images[i].image._id %>' name="id">
+            <td><input type="submit" name="Add" value="+" style="position: relative;left: 5em;"></td>
+            </form>
+
+            <td  class="total quantity" style="position: relative;font-weight: bold;left:6em"><p>Total Quantity : <%= images[i].quantity %></p></td>
+
+            <form action="/image/cart/delete" method="POST">
+                <input type="hidden" value= '<%= images[i].image._id %>' name="id">
+            <td><input type="submit" name="Delete" value="-" style="position: relative;left: 7.5em;"></td>
+            </form>
+
+            <td  class="totalPrice" style="position: relative;font-weight: bold;left: 8em;"><p>Total Price = <%= (images[i].image.price)*images[i].quantity %></p></td>
+            <% totalPrice=totalPrice+((images[i].image.price)*images[i].quantity); %>
+      </tr> 
+    <% } %>
+    </table>
+
+    <p style="position: relative;top:6.5em;font-weight: bold;">Final Amount = <%= totalPrice; %></p>
+
+    <form action="/image/cart/payment" method="POST">
+    <input type="hidden" name="total" value='<%= totalPrice %>'>
+    <input type="submit" name="payment" value="Proceed Payment" style="position: relative;top:7em;border-radius: 4px;background-color: cornflowerblue;">
+    </form>
+
+    

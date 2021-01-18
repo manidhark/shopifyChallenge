@@ -1,0 +1,23 @@
+<h1 class="mt-4">Dashboard</h1>
+
+<form action="/image/search" method="POST">
+    <input type="text" name="search">
+    <input type="submit" name="searchBtn" value="Search">
+</form>
+
+<p>Search Result for <%= search %></p>
+
+<a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+
+<table>
+    <% for(var i=0; i<images.length; i++) { %>
+     <tr>
+            <td><p>Image Name = <%= images[i].name %></p></td>
+            <td><p>Price = <%= images[i].price %></p></td>
+            <td><p>Description = <%= images[i].description %></p></td>
+            <td><p>Owner = <%= images[i].author.name %></p></td>
+            <td><img src="../uploads/<%= images[i].imageFile %>" width="100" height="100"/></td>
+            <td><button class="add to cart">Add to cart</button></td>
+      </tr>
+    <% } %>
+    </table>

@@ -1,0 +1,17 @@
+<a href="/dashboard" class="btn btn-secondary" style="position: relative;top:2em;background-color: rgb(83, 124, 201);">Dashboard</a>
+
+
+<table>
+   <% for(var i=0; i<images.length; i++) { %>
+    <tr>
+        <td class="name" style="font-weight: bold;"><p>Image Name = <%= images[i].name %></p></td>
+            <td class="price" style="font-weight: bold;position: relative;left:3em"><p>Price = <%= images[i].price %></p></td>
+            <td class="description" style="font-weight: bold;position: relative;left:5.5em;"><p>Description = <%= images[i].description %></p></td>
+            <td><img src="../uploads/<%= images[i].imageFile %>" width="300" height="300" style="position: relative;left:7em;top:3em"/></td>
+            <form action="delete" method="POST">
+                <input type="hidden" value= '<%= images[i]._id %>' name="id">
+            <td><input type="submit" name="Delete" value="Delete" style="position: relative;border-radius: 4px;left:10em;top:4em;background-color:cornflowerblue"></td>
+            </form>
+      </tr>
+    <% } %>
+    </table>

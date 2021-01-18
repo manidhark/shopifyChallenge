@@ -1,0 +1,9 @@
+<h1 class="mt-4">Image Upload Successful</h1>
+<a href="/dashboard" class="btn btn-secondary" style="background-color: cornflowerblue;">Dashboard</a>
+<a href="upload" class="btn btn-secondary" style="background-color: cornflowerblue;">Upload Another Image</a>
+
+
+<p>Name = <%= image.name %></p>
+<p>Description = <%= image.description %></p>
+<p>Price = <%= image.price %></p>
+<img src="../uploads/<%=image.imageFile %>" width="300" height="300"/>
